@@ -3,11 +3,12 @@ import { registerUser, loginUser } from "../controllers/authController.js";
 
 const router = express.Router();
 
-// Software T: Route for registering a new user
+// Software T: register route
 router.post("/register", registerUser);
 
-// Software T: Route for logging in existing user
+// Software T: login route
 router.post("/login", loginUser);
 
 export default router;
+
 
