@@ -1,8 +1,16 @@
+# Node modules/ Okay, this is a standard .gitignore file for a Node.js project. It ignores the `node_modules/` directory, which contains all the installed dependencies and can be easily recreated using `npm install` or `yarn install`.
 node_modules/
-dist/
-build/
+
+# Environment variables (VERY IMPORTANT)
 .env
+
+# Logs
+*.log
+
+# OS files
 .DS_Store
 Thumbs.db
-*.zip
-*.log
+
+# Build folders (if ever used)
+dist/
+build/
