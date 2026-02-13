@@ -1,6 +1,7 @@
 
 import express from "express";
 import cors from "cors";
+import authRoutes from "./routes/authRoutes.js";
 
 // Software T: Create express application instance
 const app = express();
@@ -20,6 +21,10 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.json({ message: "GigGoals API is running 🚀" });
 });
+
+// Software T: Mount auth routes under /api/auth
+app.use("/api/auth", authRoutes);
+
 
 // : Export app so server.js can use it
 export default app;
