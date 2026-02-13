@@ -46,7 +46,7 @@ export const registerUser = async (req, res, next) => {
 };
 
 // Software T: Login existing user
-export const loginUser = async (req, res) => {
+export const loginUser = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
