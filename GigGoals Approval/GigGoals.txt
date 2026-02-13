@@ -1,0 +1,6 @@
+GigGoals is my full-stack MERN job application tracker. 
+Users can register and log in securely, create “Gigs” (job opportunities)
+ as projects, and track application steps as tasks with statuses 
+(To Do, In Progress, Done). All routes are protected with 
+JWT authentication and strict ownership-based authorization, 
+so users can only access and modify their own gigs and tasks.
