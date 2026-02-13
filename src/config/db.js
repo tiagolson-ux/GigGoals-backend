@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 
+// Software T: Function to connect to MongoDB
 const connectDB = async () => {
   try {
-    // Software T: Connecting to Mongo using environment variable
+    // T: Connecting to Mongo using environment variable
     const conn = await mongoose.connect(process.env.MONGO_URI);
 
     // Software T: Confirm successful connection
