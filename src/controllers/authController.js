@@ -11,7 +11,7 @@ const generateToken = (id) => {
 };
 
 // Software T: Register new user
-export const registerUser = async (req, res) => {
+export const registerUser = async (req, res, next) => {
   try {
     const { name, email, password } = req.body;
 
