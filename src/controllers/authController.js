@@ -1,5 +1,7 @@
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+
 
 /*
   Software T: AUTH CONTROLLER
@@ -44,7 +46,7 @@ export const registerUser = async (req, res) => {
   }
 };
 
-// ================= LOGIN =================
+/// ================= LOGIN =================
 export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -61,13 +63,24 @@ export const loginUser = async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
+    // Software T: generate token
+    const token = jwt.sign(
+      { id: user._id },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" }
+    );
+
     // Software T: successful login response
     return res.json({
       _id: user._id,
       name: user.name,
       email: user.email,
+      token,
     });
+
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
+};
+
 };
