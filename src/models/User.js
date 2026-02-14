@@ -29,7 +29,6 @@ const userSchema = new mongoose.Schema(
 );
 
 // Software T: Hash password before saving to database
-userSchema.pre("save", async function (next) {
 
   // Software T: Only hash if password was modified
   if (!this.isModified("password")) {
