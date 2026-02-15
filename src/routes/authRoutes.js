@@ -4,17 +4,18 @@ import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-// Software T: Register route
+// REGISTER
 router.post("/register", registerUser);
 
-// Software T: Login route
+// LOGIN
 router.post("/login", loginUser);
 
-// Software T: Protected profile route
+// PROTECTED PROFILE ROUTE
 router.get("/profile", protect, (req, res) => {
   res.json(req.user);
 });
 
 export default router;
+
 
 
