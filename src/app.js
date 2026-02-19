@@ -3,16 +3,16 @@ import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
 import gigRoutes from "./routes/gigRoutes.js";
 
-// Software T: Create express application instance
+// Initialize Express application
 const app = express();
 
-// T: Enable CORS so frontend can talk to backend
+// Enable CORS for cross-origin requests
 app.use(cors());
 
-// T: Allow server to read JSON in request body
+// Parse incoming JSON requests
 app.use(express.json());
 
-// T: Temporary health check route to confirm server works
+// Health check routes
 app.get("/", (req, res) => {
   res.json({ message: "GigGoals API is running" });
 });
@@ -21,9 +21,8 @@ app.get("/health", (req, res) => {
   res.json({ status: "API is running" });
 });
 
-// Software T: Mount auth routes under /api/auth
+// Mount API routes
 app.use("/api/auth", authRoutes);
 app.use("/api/gigs", gigRoutes);
 
-// Export app so server.js can use it
 export default app;

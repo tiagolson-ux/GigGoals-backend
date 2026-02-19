@@ -2,16 +2,16 @@ import dotenv from "dotenv";
 import app from "./app.js";
 import connectToDatabase from "./config/db.js";
 
-//  T: Load environment variables first
+// Load environment variables
 dotenv.config();
 
-// T: Define port
+// Define server port from environment or use default
 const PORT = process.env.PORT || 5000;
 
-// T: Start Express server after database connection
+// Initialize express server with database connection
 const startServer = async () => {
   try {
-    //  T: Connect to file-based database before starting server
+    // Connect to database before starting server
     await connectToDatabase();
     
     app.listen(PORT, () => {
